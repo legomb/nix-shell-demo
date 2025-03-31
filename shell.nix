@@ -6,12 +6,12 @@ pkgs.mkShell
 		nodejs
 	];
 
-	shellHook = ''
-		echo "welcome"
-		echo "to my shell!" | ${pkgs.lolcat}/bin/lolcat 
-	'';
-
 	COLOR = "blue";
 
+	# Contents of password.nix should be a quoted string:
 	PASSWORD = import ./password.nix;
+	
+	shellHook = ''
+		echo "welcome to my shell!" | ${pkgs.lolcat}/bin/lolcat 
+	'';
 }
